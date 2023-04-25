@@ -10,6 +10,9 @@ class Booking(models.Model):
     number_of_guests = models.PositiveIntegerField(default=2, validators=[MinValueValidator(1)])
     booking_date = models.DateTimeField(validators=[validate_date])
 
+    def __str__(self):
+        return f'{self.name} | {self.booking_date.year}-{self.booking_date.month}-{self.booking_date.day} | {self.booking_date.hour}:{self.booking_date.minute}'
+
 
 class Menu(models.Model):
     title = models.CharField(max_length=255)
